@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+
+    <title>eBus demo</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="topbar sh">
+
+            <div class="tb_left">
+                <span class="time">10:27</span>
+                <span class="time seconds">41</span>
+            </div>
+
+
+
+            <div class="tb_center">
+                <i class="icon_bus"></i>
+                <span class="info">706</span>
+            </div>
+
+
+
+            <div class="tb_right">
+
+                <div class="icons">
+
+                    <i class="icon_tram"></i>
+                    <i class="icon_traffic_light"></i>
+                    <i class="icon_wifi"></i>
+                    <i class="icon_satellite"></i>
+                    <i class="icon_switch_on"></i>
+
+                </div>
+
+                <div class="nav_toggle">
+
+                    <i class="icon_navigator"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="overlay" id="login">
+
+            <div class="overlay_content">
+                <div class="content">
+
+                    <div class="form" id="matr">
+
+                        <h1>Matricule</h1>
+
+                        <input inputmode="numeric" pattern="[0-9]*" type="text" name="matricule" value="" placeholder="•••••">
+
+                        <div class="buttons">
+
+                            <a class="button" href="#" data-confirm>
+                                <span>OK</span>
+                                <i class="icon_check"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form" id="pwd">
+
+                        <h1>Mot de passe</h1>
+
+                        <input inputmode="numeric" pattern="[0-9]*" type="password" name="matricule" value="" placeholder="•••••">
+
+                        <div class="buttons">
+
+                            <a class="button" href="#" data-confirm>
+                                <span>OK</span>
+                                <i class="icon_check"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form" id="serv">
+
+                        <h1>Vous êtes affecté au service</h1>
+
+                        <p class="serv_number">12345</p>
+
+                        <div class="buttons">
+
+                            <a class="button" href="#" data-confirm>
+                                <span>Oui</span>
+                                <i class="icon_check"></i>
+                            </a>
+
+                            <a class="button" href="#">
+                                <span>Autre</span>
+                                <i class="icon_refresh"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form" id="agent">
+
+                        <h1>Service agent</h1>
+
+                        <input inputmode="numeric" pattern="[0-9]*" type="text" name="matricule" value="" placeholder="•••••">
+
+                        <div class="buttons">
+
+                            <a class="button" href="#" data-confirm>
+                                <span>OK</span>
+                                <i class="icon_check"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="overlay" id="welcome">
+
+            <div class="overlay_content">
+                <div class="content">
+
+                    <a href="#" class="start-box">
+
+                        <img src="images/logo.svg" alt="logo">
+
+                        <h1>eBus</h1>
+
+                        <i class="icon_Touch"></i>
+
+                        <p>Touchez l’écran</p>
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="main">
+
+            <div class="partial_content show" id="main">
+                <div class="page_wrapper">
+
+                    <div class="line_view">
+
+                        <div class="side">
+
+                            <div class="line_name">
+
+                                <div class="name_wrap">
+
+                                    <span class="label">LIGNE</span>
+
+                                    <span class="number">3</span>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="time_indicator late">
+
+                                <i class="icon_arrow_up_long"></i>
+
+                                <div class="minutes">
+
+                                    <i class="icon_add"></i>
+                                    <i class="icon_remove"></i>
+                                    <span>5</span>
+                                    <span class="min">min</span>
+                                </div>
+
+                                <i class="icon_arrow_down_long"></i>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="stops">
+
+                            <div class="line">
+                                <div class="dots">
+
+                                </div>
+                            </div>
+
+                            <div class="stop last">
+                                <span class="point"></span>
+                                <span>10:38 LEFFRINCKOUCKE PLAGE</span>
+                            </div>
+
+
+
+                            <div class="sliding_stops">
+
+                                <div class="stop_wrap">
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Parc Des Sports</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Britania</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Choiseul</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Poste de secours</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Avenue Kleber</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Turenne</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>Geeraert</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>MALO PLAGE</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>FENELON</span>
+                                    </div>
+
+                                    <div class="sl_stop">
+                                        <span class="point"></span>
+                                        <span>ST J. BAPTISTE</span>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div class="stop first">
+                                <span class="point"></span>
+                                <span>09:57 IMPRESSIONNISTES</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="service">
+                <div class="page_wrapper">
+
+                    <div class="page_header">
+                        <h1 class="title">GESTION DU SERVICE</h1>
+                    </div>
+
+                    <div class="grid">
+
+                        <a class="col-4 button big mono" href="#"><span>Relève conducteur</span></a>
+
+                        <a class="col-4 button big mono" href="#"><span>Liste des arrêts</span></a>
+
+                        <a class="col-4 button big mono" href="#"><span>Changer de course</span></a>
+
+                        <a class="col-4 button big mono" href="#" disabled><span>Choisir un service</span></a>
+
+                        <a class="col-4 button big mono" href="#"><span>Fermer le service</span></a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="call">
+                <div class="page_wrapper">
+
+                    <div class="page_header">
+
+                        <h1 class="title">Demande d’appel AU PCC</h1>
+
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="col-2">
+
+                        </div>
+
+                        <div class="col-4">
+
+                            <a class="button big" href="#">
+                                <span>APPELEZ-MOI</span>
+                                <i class="icon_call"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="vehicle_messages">
+                <div class="page_wrapper">
+
+                    <div class="grid">
+
+                        <div class="col-4">
+
+                            <h2 class="column_title">PCC</h2>
+
+                            <div class="grid">
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_road_block"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_broke"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_people"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_medical"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_car_crash"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_garbage"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_ask_info"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_shift_failed"></i>
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-4">
+
+                            <h2 class="column_title">Vehicule</h2>
+
+                            <div class="grid">
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_exit"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_bus_back"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_wheelchair"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_dog"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_road_off"></i>
+                                </a>
+
+                                <a class="col-4 button big mono" href="#">
+                                    <i class="icon_road_in"></i>
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="messages">
+                <div class="page_wrapper">
+
+                    <div class="page_header">
+                        <h1 class="title">Messages</h1>
+                    </div>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                    <a href="#" class="button big msg">
+                        <span class="title">@Tuco</span>
+                        <span class="time">12/04/2018 - 10:10:54</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="deviations">
+                <div class="page_wrapper">
+
+                    <div class="page_header">
+                        <h1 class="title">Deviations</h1>
+                    </div>
+
+                    <div class="deviation">
+
+                        <i class="icon_bus"></i>
+                        <h2 class="dev_title">LIGNE 1 (Aller)</h2>
+                        <i class="icon_calendar"></i>
+                        <p>13/04 – 14/04 (00:00 – 23:59)</p>
+                        <i class="icon_deviation"></i>
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                    </div>
+
+                    <div class="deviation">
+
+                        <i class="icon_bus"></i>
+                        <h2 class="dev_title">LIGNE 1 (Aller)</h2>
+                        <i class="icon_calendar"></i>
+                        <p>13/04 – 14/04 (00:00 – 23:59)</p>
+                        <i class="icon_deviation"></i>
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="partial_content" id="settings">
+                <div class="page_wrapper">
+
+                    <div class="page_header">
+                        <h1 class="title">Parametrages</h1>
+                    </div>
+
+                    <div class="grid">
+
+                        <a href="#" class="col-4 button big">
+                            <span>Audio</span>
+                            <i class="icon_audio"></i>
+                        </a>
+
+                        <a href="#" class="col-4 button big">
+                            <span>Mode</span>
+                            <i class="icon_contrast"></i>
+                        </a>
+
+                        <a href="#" class="col-4 button big">
+                            <span>tft</span>
+                            <i class="icon_text"></i>
+                        </a>
+
+                        <div class="col-4">
+
+                        </div>
+
+                        <a href="#" class="col-4 button big">
+                            <span>Girouettes</span>
+                            <i class="icon_sign"></i>
+                        </a>
+
+                        <a href="#" class="col-2 button big mono">
+                            <i class="icon_lock"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="bottombar sh">
+
+            <a class="bb_tab active" href="#" data-tab="main">
+                <i class="icon_home"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="service">
+                <i class="icon_user"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="call">
+                <i class="icon_call"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="vehicle_messages">
+                <i class="icon_message"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="messages">
+                <i class="icon_mail"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="deviations">
+                <i class="icon_map_route"></i>
+            </a>
+            <a class="bb_tab" href="#" data-tab="settings">
+                <i class="icon_settings"></i>
+            </a>
+
+            <div class="bar">
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div> -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
