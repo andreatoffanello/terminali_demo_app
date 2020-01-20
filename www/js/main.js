@@ -47,6 +47,25 @@ $(document).ready( function() {
 	// bottom bar
 
 
+	// popup show
+
+	$("[data-popup]").click( function(){
+
+		var popId = $(this).attr("data-tab");
+
+		$(".popup_container").removeClass("show").hide();
+
+		$('#' + popIdd).show().addClass("show");
+
+	});
+
+
+	$(".nav_toggle").click( function(){
+		$("body").toggleClass("nav_open");
+	});
+
+
+
 
 
 	$(".bb_tab").click( function() {
