@@ -47,6 +47,7 @@
 </head>
 
 <body>
+
     <div class="page">
         <div class="topbar sh">
 
@@ -138,7 +139,7 @@
                                 <i class="icon_check"></i>
                             </a>
 
-                            <a class="button" href="#">
+                            <a class="button" href="#" data-popup="change_course">
                                 <span>Autre</span>
                                 <i class="icon_refresh"></i>
                             </a>
@@ -525,8 +526,8 @@
                         <i class="icon_calendar"></i>
                         <p>13/04 – 14/04 (00:00 – 23:59)</p>
                         <i class="icon_deviation"></i>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.</p>
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.</p>
 
                     </div>
 
@@ -537,8 +538,8 @@
                         <i class="icon_calendar"></i>
                         <p>13/04 – 14/04 (00:00 – 23:59)</p>
                         <i class="icon_deviation"></i>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.</p>
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.</p>
 
                     </div>
 
@@ -616,14 +617,28 @@
             </div>
 
         </div>
-    </div>
-    <!-- <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+        <div class="popup_container">
+
+            <div class="">
+
+            </div>
+
         </div>
-    </div> -->
+    </div>
+
+
+    <div class="navigator">
+        <div id="map"></div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhdG9mZmFuZWxsbyIsImEiOiJjajNweWwxdnYwMDNxMndxZHkwNTBieHJzIn0.5ZJqJs29sA9UNOxNr0Fq_A';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/andreatoffanello/ck5mhmrdr12nf1inzwrt7araw',
+                center: [2.402, 51.042],
+                zoom: 14
+            });
+        </script>
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
