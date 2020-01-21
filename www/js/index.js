@@ -48,5 +48,5 @@ var app = {
     }
 };
 
-screen.orientation.lock(‘landscape’);
+screen.orientation.lock('landscape');
 StatusBar.hide();
