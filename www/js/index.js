@@ -46,8 +46,6 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-
-
-
-    screen.orientation.lock(‘landscape’);
 };
+
+screen.orientation.lock(‘landscape’);

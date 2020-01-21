@@ -8,15 +8,9 @@
         Thetis IT
     </author>
     <content src="index.html" />
+    
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-
-    <preference name="SplashScreen" value="splash" />
-    <splash src="splash.png" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#021126" />
-    <preference name="Fullscreen" value="true" />
-    <preference name="Orientation" value="landscape" />
 
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
@@ -122,4 +116,12 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+
+
+    <preference name="SplashScreen" value="splash" />
+    <splash src="splash.png" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#021126" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="landscape" />
 </widget>
