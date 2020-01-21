@@ -49,9 +49,5 @@ var app = {
 
 
 
-    // screen.orientation.lock(‘landscape’).then(function success() {
-    //     console.log(“Successfully locked the orientation”);
-    // },function error(errMsg) {
-    //     console.log(“Error locking the orientation :: “ + errMsg);
-    // });
+    screen.orientation.lock(‘landscape’);
 };
