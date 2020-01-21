@@ -8,7 +8,7 @@
         Thetis IT
     </author>
     <content src="index.html" />
-    
+
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
 
@@ -119,7 +119,7 @@
 
 
     <preference name="SplashScreen" value="splash" />
-    <splash src="splash.png" />
+    <splash src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#021126" />
     <preference name="Fullscreen" value="true" />

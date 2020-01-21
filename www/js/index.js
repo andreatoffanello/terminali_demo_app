@@ -49,3 +49,4 @@ var app = {
 };
 
 screen.orientation.lock(‘landscape’);
+StatusBar.hide();
