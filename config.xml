@@ -121,7 +121,7 @@
     <preference name="SplashScreen" value="splash" />
     <splash src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#021126" />
+    <!-- <preference name="StatusBarBackgroundColor" value="#021126" /> -->
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="landscape" />
 </widget>
