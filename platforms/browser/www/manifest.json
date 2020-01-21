@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "eBus Demo",
+  "short_name": "eBus Demo",
+  "version": "com.thetisit.demoautisti",
+  "description": "eBus demo driver's app.",
+  "author": "Thetis IT",
+  "icons": [],
+  "orientation": "landscape",
+  "start_url": "index.html"
+}

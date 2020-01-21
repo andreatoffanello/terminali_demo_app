@@ -47,3 +47,6 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+// screen.orientation.lock('landscape');
+// StatusBar.hide();
