@@ -54,7 +54,7 @@
 
 <body>
 
-    <body>
+
 
         <div class="page"><div class="topbar sh">
 
@@ -101,6 +101,8 @@
 
         <h1>Matricule</h1>
 
+        <h3 class="error_msg">Value incorrect  <i class="icon_alert"></i></h3>
+
         <input inputmode="numeric" pattern="[0-9]*" type="text" name="matricule" value="" placeholder="•••••">
 
         <div class="buttons">
@@ -118,7 +120,9 @@
 
         <h1>Mot de passe</h1>
 
-        <input inputmode="numeric" pattern="[0-9]*" type="password" name="matricule" value="" placeholder="•••••">
+        <h3 class="error_msg">Value incorrect  <i class="icon_alert"></i></h3>
+
+        <input inputmode="numeric" pattern="[0-9]*" type="password" name="password" value="" placeholder="•••••">
 
         <div class="buttons">
 
@@ -159,7 +163,9 @@
 
         <h1>Service agent</h1>
 
-        <input inputmode="numeric" pattern="[0-9]*" type="text" name="matricule" value="" placeholder="•••••">
+        <h3 class="error_msg">Value incorrect  <i class="icon_alert"></i></h3>
+
+        <input inputmode="numeric" pattern="[0-9]*" type="text" name="service" value="" placeholder="•••••">
 
         <div class="buttons">
 
@@ -171,9 +177,6 @@
         </div>
 
     </div>
-
-
-
 
 </div>
 </div>
@@ -606,9 +609,75 @@
     </div>
 
 </div>
-<div class="popup_container">
+<div class="popup_container" id="change_course">
 
-    <div class="">
+    <div class="popup_head">
+        <h1 class="popup_title">Autre service</h1>
+
+        <i class="icon_close popup_close"></i>
+    </div>
+
+    <div class="popup_content">
+
+        <li class="list_element">
+            <span data-item-value="12345">12345</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="34526">34526</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="237682">237682</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="21567120">21567120</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="98723">98723</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="0980">0980</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="23867">23867</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="345543">345543</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="237899">237899</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="1212098">1212098</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="234567">234567</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
+
+        <li class="list_element">
+            <span data-item-value="098765">098765</span>
+            <i class="icon_arrow_right_long"></i>
+        </li>
 
     </div>
 
@@ -621,6 +690,7 @@
 
 
 </div>
+
 
     <!-- <script type="text/javascript">
         app.initialize();

@@ -14,18 +14,45 @@ $(document).ready( function() {
 		});
 	});
 
+	$(".error_msg").hide();
+
+
 	$("#matr [data-confirm]").click( function() {
-		$("#matr").fadeOut(300, function() {
-			//Stuff to do *after* the animation takes place
-			$("#pwd").fadeIn();
-		});
+
+		if ( $("#matr input").val() == "12345" ) {
+
+			$(".error_msg").hide();
+
+			$("#matr").fadeOut(300, function() {
+				//Stuff to do *after* the animation takes place
+				$("#pwd").fadeIn();
+			});
+
+		} else {
+
+			$("#matr .error_msg").show();
+
+		}
+
 	});
 
 	$("#pwd [data-confirm]").click( function() {
-		$("#pwd").fadeOut(300, function() {
-			//Stuff to do *after* the animation takes place
-			$("#serv").fadeIn();
-		});
+
+		if ( $("#pwd input").val() == "12345" ) {
+
+			$(".error_msg").hide();
+
+			$("#pwd").fadeOut(300, function() {
+				//Stuff to do *after* the animation takes place
+				$("#serv").fadeIn();
+			});
+
+		} else {
+
+			$("#pwd .error_msg").show();
+
+		}
+
 	});
 
 	$("#serv [data-confirm]").click( function() {
@@ -35,38 +62,67 @@ $(document).ready( function() {
 		});
 	});
 
+
+
 	$("#agent [data-confirm]").click( function() {
-		$("#login").fadeOut(300, function() {
-			//Stuff to do *after* the animation takes place
-			$("#main").show().addClass("show");
-		});
+
+		if ( $("#agent input").val() == "12345" ) {
+
+			$(".error_msg").hide();
+
+			$("#login").fadeOut(300, function() {
+				//Stuff to do *after* the animation takes place
+				$("#main").show().addClass("show");
+			});
+
+		} else {
+
+			$("#agent .error_msg").show();
+
+		}
+
 	});
 
 	// const swup = new Swup();
 
 	// bottom bar
 
-
 	// popup show
 
 	$("[data-popup]").click( function(){
 
-		var popId = $(this).attr("data-tab");
+		var popId = $(this).attr("data-popup");
 
-		$(".popup_container").removeClass("show").hide();
+		$(".popup_container").removeClass("show");
 
-		$('#' + popIdd).show().addClass("show");
+		$('#' + popId).show().addClass("show");
 
 	});
 
+	$(".popup_close").click( function(){
+
+		$(".popup_container").removeClass("show");
+
+	});
+
+
+	$("#change_course .list_element").click( function(){
+
+		var elValue = $(this).find("span").data("item-value");
+
+		$('.serv_number').text(elValue);
+
+		$("#change_course").removeClass("show");
+
+	});
+
+
+
+	// nav show
 
 	$(".nav_toggle").click( function(){
 		$("body").toggleClass("nav_open");
 	});
-
-
-
-
 
 	$(".bb_tab").click( function() {
 
@@ -122,5 +178,6 @@ $(document).ready( function() {
 	$(".time_indicator").click(function() {
 		$(this).toggleClass("early late");
 	});
+
 
 });
