@@ -678,6 +678,7 @@ body {
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
   grid-template-areas: "page nav";
+  height: 100vh;
 }
 
 body .page {
