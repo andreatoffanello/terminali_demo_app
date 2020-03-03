@@ -908,7 +908,14 @@ h1, h2, h3, h4 {
   background: var(--main-color);
   z-index: 1;
   display: grid;
-  place-items: center;
+}
+
+.overlay .overlay_content {
+  place-self: start center;
+  margin-top: 25vh;
+  -webkit-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  -o-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
 }
 
 .overlay .overlay_content h1, .overlay .overlay_content p {
@@ -917,10 +924,28 @@ h1, h2, h3, h4 {
 
 .overlay .overlay_content input {
   border-bottom: 0.2rem solid var(--white);
+  width: 16rem;
+  -webkit-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  -o-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
 }
 
 .overlay .overlay_content .button {
   border: 0.2rem solid var(--white);
+}
+
+.overlay .overlay_content.focus {
+  margin-top: 1.6rem;
+  -webkit-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  -o-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+}
+
+.overlay .overlay_content.focus input {
+  width: 32rem;
+  -webkit-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  -o-transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
+  transition: 0.3s cubic-bezier(0.3, 0, 0, 1);
 }
 
 .form h1 {

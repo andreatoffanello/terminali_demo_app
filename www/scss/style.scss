@@ -231,21 +231,37 @@ h1, h2, h3, h4 {
 	background: $main-color;
 	z-index: 1;
 	display: grid;
-	place-items: center;
+
 	// display: none;
 
 	.overlay_content {
-			h1, p {
-				color: $white;
-			}
+		place-self: start center;
+		margin-top: 25vh;
+		transition: .3s $ease;
+
+		h1, p {
+			color: $white;
+		}
+
+		input {
+			border-bottom: .2rem solid $white;
+			width: 16rem;
+			transition: .3s $ease;
+		}
+
+		.button {
+			border: .2rem solid $white;
+		}
+
+		&.focus {
+			margin-top: 1.6rem;
+			transition: .3s $ease;
 
 			input {
-				border-bottom: .2rem solid $white;
+				width: 32rem;
+				transition: .3s $ease;
 			}
-
-			.button {
-				border: .2rem solid $white;
-			}
+		}
 	}
 }
 

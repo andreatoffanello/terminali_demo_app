@@ -17,6 +17,18 @@ $(document).ready( function() {
 	$(".error_msg").hide();
 
 
+
+ 	$("input").focusin(function() {
+		$(this).parents(".overlay_content").addClass("focus");
+	});
+
+	$("input").focusout(function() {
+		$(this).parents(".overlay_content").removeClass("focus");
+	});
+
+
+	// login
+
 	$("#matr [data-confirm]").click( function() {
 
 		if ( $("#matr input").val() == "12345" ) {
@@ -36,6 +48,12 @@ $(document).ready( function() {
 
 	});
 
+	$("#matr input").keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $("#matr [data-confirm]").click();//Trigger search button click event
+        }
+    });
+
 	$("#pwd [data-confirm]").click( function() {
 
 		if ( $("#pwd input").val() == "12345" ) {
@@ -54,6 +72,13 @@ $(document).ready( function() {
 		}
 
 	});
+
+	$("#pwd input").keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $("#pwd [data-confirm]").click();//Trigger search button click event
+        }
+    });
+
 
 	$("#serv [data-confirm]").click( function() {
 		$("#serv").fadeOut(300, function() {
@@ -82,6 +107,12 @@ $(document).ready( function() {
 		}
 
 	});
+
+	$("#agent input").keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $("#agent [data-confirm]").click();//Trigger search button click event
+        }
+    });
 
 	// const swup = new Swup();
 
