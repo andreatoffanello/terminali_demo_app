@@ -180,4 +180,21 @@ $(document).ready( function() {
 	});
 
 
+	$('[data-toggle=mode]').click(function() {
+
+		$('html').attr('data-theme', $('html').attr('data-theme') == 'light' ? 'dark' : 'light')
+
+		// var html = $("html");
+		//
+		// if (html.data('theme') == 'light') {
+	    // 	html.attr('data-theme', 'dark');
+	   	// }
+		// else if (html.data('theme') == 'dark') {
+	    // 	html.attr('data-theme', 'light');
+	   	// }
+		// else {
+	   	// }
+	});
+
+
 });

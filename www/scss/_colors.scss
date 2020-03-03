@@ -1,0 +1,83 @@
+// :root {
+//     --text-color: #f0f0f0;
+//
+//     --background-color: #021126;
+//
+//     --main-color: #021126;
+//
+//     --secondary-color: #53A6F8;
+//
+//     --green-color: green;
+//
+//     --red-color: red;
+// }
+
+
+
+[data-theme='light'] {
+
+    --white: #f0f0f0;
+
+    --text-color: #353535;
+
+    --background-color: #f0f0f0;
+
+    --main-color: #033E8C;
+
+    --secondary-color: #53A6F8;
+
+    --green-color: green;
+
+    --red-color: red;
+
+    --border-color: var(--main-color);
+
+    --heading-color: var(--main-color);
+
+
+}
+
+[data-theme="dark"] {
+
+    --white: #f0f0f0;
+
+    --text-color: #f0f0f0;
+
+    --background-color: #021126;
+
+    --main-color: #021126;
+
+    --secondary-color: #53A6F8;
+
+    --green-color: green;
+
+    --red-color: red;
+
+    --border-color: #f0f0f0;
+
+    --heading-color: #f0f0f0;
+
+}
+
+
+$dark_blue: #021126;
+
+$background-color: var(--background-color);
+
+$light_blue: #53A6F8;
+
+$main-color: var(--main-color);
+
+$secondary-color: var(--secondary-color);
+
+$white: var(--white);
+
+$text-color: var(--text-color);
+
+$green-color: var(--green-color);
+
+$red-color: var(--red-color);
+
+$border-color: var(--border-color);
+
+$heading-color: var(--heading-color);
